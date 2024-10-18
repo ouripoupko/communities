@@ -7,6 +7,8 @@ import {
 } from "react-router-dom";
 import Main from "./pages/main/Main";
 import Community from "./pages/community/Community";
+import Topic from "pages/topic/Topic";
+import Post from "pages/post/Post";
 
 const router = createBrowserRouter([
   {
@@ -14,8 +16,16 @@ const router = createBrowserRouter([
     element: <Main />,
   },
   {
-    path: "/community",
-    element: <Community />,
+    path: "/community/:community",
+    element: <Community />
+  },
+  {
+    path: "/community/:community/topic/:topic",
+    element: <Topic />,
+  },
+  {
+    path: "/community/:community/topic/:topic/post/:post",
+    element: <Post />,
   },
   {
     path: "/",

@@ -1,11 +1,16 @@
 // src/store.ts
 import { configureStore } from '@reduxjs/toolkit';
-import communitiesReducer from './reducers/CommunitiesReducer';
+import communityListReducer from './reducers/CommunityListSlice';
+import communityReducer from './reducers/CommunitiesSlice';
+import topicReducer from './reducers/TopicsSlice';
+import postReducer from './reducers/PostsSlice'
 
 const store = configureStore({
   reducer: {
-    communities: communitiesReducer,
-    // posts: postsReducer,
+    communityList: communityListReducer,
+    communities: communityReducer,
+    topics: topicReducer,
+    posts: postReducer
   },
 });
 

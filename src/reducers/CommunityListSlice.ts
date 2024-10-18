@@ -10,10 +10,19 @@ export const fetchCommunities = createAsyncThunk(
   }
 );
 
-const communitiesReducer = createSlice({
+export const createCommunity = createAsyncThunk(
+  "communities/createCommunity",
+  async (name: string) => {
+    // const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    // return response.json();
+    return name;
+  }
+);
+
+const communityListSlice = createSlice({
   name: "communities",
   initialState: {
-    communities: {},
+    communities: {} as {[key:string]: string},
     status: "idle", // 'idle' | 'loading' | 'succeeded' | 'failed'
   },
   reducers: {
@@ -31,9 +40,12 @@ const communitiesReducer = createSlice({
       })
       .addCase(fetchCommunities.rejected, (state) => {
         state.status = "failed";
+      })
+      .addCase(createCommunity.fulfilled, (state, action) => {
+        state.communities[action.payload] = action.payload;
       });
   },
 });
 
 // export const { increment, decrement } = communitiesReducer.actions;
-export default communitiesReducer.reducer;
+export default communityListSlice.reducer;

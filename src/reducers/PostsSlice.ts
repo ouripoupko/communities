@@ -64,7 +64,7 @@ const postReducer = createSlice({
           kids: [],
         };
         state[topic + post].push(commentObj);
-        if (parent) {
+        if (parent !== null) {
           state[topic + post][parent].kids.push(commentObj.index);
         }
       });

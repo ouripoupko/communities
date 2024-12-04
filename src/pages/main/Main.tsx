@@ -27,8 +27,8 @@ const Main = () => {
   }, [dispatch, status]);
 
   return (
-    <div>
-      <div className={styles.header}>
+    <div className={styles["main-page"]}>
+      <div className={styles["header"]}>
         <div>gloKi</div>
         <div>&#9776;</div>
       </div>

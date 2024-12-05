@@ -1,44 +1,22 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useState } from "react";
 import styles from "./Main.module.scss";
-import { AppDispatch, RootState } from "Store";
-import { useEffect, useRef } from "react";
-import { createCommunity, fetchCommunities } from "reducers/CommunityListSlice";
-import { Link } from "react-router-dom";
+import Header from "./header/Header";
+import { EMainPage } from "enums/MainEnums";
+import Profile from "./profile/Profile";
+import Communities from "./communities/Communities";
+import FooterNavigator from "./footer/FooterNavigator";
 
 const Main = () => {
-  const dispatch = useDispatch<AppDispatch>();
-  const { communities, status } = useSelector(
-    (state: RootState) => state.communityList
-  );
-  const inputRef = useRef<HTMLInputElement>(null);
-
-  const handleAddCommunity = () => {
-    if (inputRef.current && inputRef.current.value.trim() !== "") {
-      // Check if input is not empty
-      dispatch(createCommunity(inputRef.current.value));
-      inputRef.current.value = "";
-    }
-  };
-
-  useEffect(() => {
-    if (status === "idle") {
-      dispatch(fetchCommunities());
-    }
-  }, [dispatch, status]);
+  const [currentView, setCurrentView] = useState(EMainPage.Profile);
 
   return (
     <div className={styles["main-page"]}>
-      <div className={styles["header"]}>
-        <div>gloKi</div>
-        <div>&#9776;</div>
+      <Header></Header>
+      <div className={styles["main-content"]}>
+        {currentView == EMainPage.Profile && <Profile></Profile>}
+        {currentView == EMainPage.Communities && <Communities></Communities>}
       </div>
-      <input type="text" ref={inputRef} placeholder="Enter a name" />
-      <button onClick={handleAddCommunity}>add</button>
-      {Object.values(communities).map((community, id) => (
-        <div key={id}>
-          <Link to={`/community/${community}`}>{community}</Link>
-        </div>
-      ))}
+      <FooterNavigator setCurrentView={setCurrentView}></FooterNavigator>
     </div>
   );
 };

@@ -16,7 +16,7 @@ const Main = () => {
         {currentView == EMainPage.Profile && <Profile></Profile>}
         {currentView == EMainPage.Communities && <Communities></Communities>}
       </div>
-      <FooterNavigator setCurrentView={setCurrentView}></FooterNavigator>
+      <FooterNavigator setCurrentView={setCurrentView} currentPage={currentView}></FooterNavigator>
     </div>
   );
 };

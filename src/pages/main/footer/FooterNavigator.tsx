@@ -35,22 +35,25 @@ const FooterNavigator: React.FC<FooterNavigatorProps> = ({
   ];
 
   return (
-    <div className={styles.footer}>
-      <div className={styles.navContainer}>
-        {navItems.map((item) => (
-          <div
-            key={item.view}
-            className={`${styles.navItem} ${
-              currentPage === item.view ? styles.active : ""
-            }`}
-            onClick={() => setCurrentView(item.view)}
-          >
-            <div className={styles.iconWrapper}>
-              <img src={item.icon} alt={item.label} />
+    <div className={styles.footerContainer}>
+      <div className={styles.footerOutline}></div>
+      <div className={styles.footer}>
+        <div className={styles.navContainer}>
+          {navItems.map((item) => (
+            <div
+              key={item.view}
+              className={`${styles.navItem} ${
+                currentPage === item.view ? styles.active : ""
+              }`}
+              onClick={() => setCurrentView(item.view)}
+            >
+              <div className={styles.iconWrapper}>
+                <img src={item.icon} alt={item.label} />
+              </div>
+              <span className={styles.label}>{item.label}</span>
             </div>
-            <span className={styles.label}>{item.label}</span>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );

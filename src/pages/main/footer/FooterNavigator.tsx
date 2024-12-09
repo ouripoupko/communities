@@ -24,12 +24,22 @@ const FooterNavigator: React.FC<FooterNavigatorProps> = ({
   const navItems: NavItem[] = [
     {
       icon: profileIcon,
-      label: 'Profile',
+      label: 'Votes',
       view: EMainPage.Profile
     },
     {
+      icon: profileIcon,
+      label: 'Issue Areas',
+      view: EMainPage.AddCommunity
+    },
+    {
+      icon: profileIcon,
+      label: 'Favorites',
+      view: EMainPage.Find
+    },
+    {
       icon: communitiesIcon,
-      label: 'Communities',
+      label: 'Search',
       view: EMainPage.Communities
     }
   ];

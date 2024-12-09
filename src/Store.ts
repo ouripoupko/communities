@@ -1,16 +1,18 @@
 // src/store.ts
-import { configureStore } from '@reduxjs/toolkit';
-import communityListReducer from './reducers/CommunityListSlice';
-import communityReducer from './reducers/CommunitiesSlice';
-import topicReducer from './reducers/TopicsSlice';
-import postReducer from './reducers/PostsSlice'
+import { configureStore } from "@reduxjs/toolkit";
+import individualReducer from "./reducers/IndividualSlice";
+import communityListReducer from "./reducers/CommunityListSlice";
+import communityReducer from "./reducers/CommunitiesSlice";
+import topicReducer from "./reducers/TopicsSlice";
+import postReducer from "./reducers/PostsSlice";
 
 const store = configureStore({
   reducer: {
+    individual: individualReducer,
     communityList: communityListReducer,
     communities: communityReducer,
     topics: topicReducer,
-    posts: postReducer
+    posts: postReducer,
   },
 });
 

@@ -13,8 +13,8 @@ const Main = () => {
     <div className={styles["main-page"]}>
       <Header></Header>
       <div className={styles["main-content"]}>
-        {currentView == EMainPage.Profile && <Profile></Profile>}
-        {currentView == EMainPage.Communities && <Communities></Communities>}
+        {currentView === EMainPage.Profile && <Profile></Profile>}
+        {currentView === EMainPage.Communities && <Communities></Communities>}
       </div>
       <FooterNavigator setCurrentView={setCurrentView} currentPage={currentView}></FooterNavigator>
     </div>

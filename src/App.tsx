@@ -14,12 +14,22 @@ import { readContracts, setCredentials } from "reducers/IndividualSlice";
 import { AppDispatch, RootState } from "Store";
 import { listenAgent } from "server/agent";
 import Loader from "components/ui/loader/Loader";
+import QrScan from "pages/dialogs/qrscan/QrScan";
+import QrShare from "pages/dialogs/qrshare/QrShare";
 
 const router = createBrowserRouter(
   [
     {
       path: "/main",
       element: <Main />,
+    },
+    {
+      path: "/scan",
+      element: <QrScan />,
+    },
+    {
+      path: "/share",
+      element: <QrShare />,
     },
     {
       path: "/community/:community",

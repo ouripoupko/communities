@@ -2,9 +2,10 @@ import { EMainPage } from "enums/MainEnums";
 import styles from "./FooterNavigator.module.scss";
 import React from "react";
 
-// Import your icons
-import profileIcon from '../../../assets/icons/profile-footer-button.svg';
-import communitiesIcon from '../../../assets/icons/communities-footer-button.svg';
+import votesIcon from '../../../assets/icons/votes-footer-icon.svg';
+import searchIcon from '../../../assets/icons/search-footer-icon.svg';
+import favoritesIcon from '../../../assets/icons/favorites-footer-icon.svg';
+import issueAreaIcon from '../../../assets/icons/issue-areas-footer-icon.svg';
 
 interface FooterNavigatorProps {
   setCurrentView: (view: EMainPage) => void;
@@ -23,24 +24,24 @@ const FooterNavigator: React.FC<FooterNavigatorProps> = ({
 }) => {
   const navItems: NavItem[] = [
     {
-      icon: profileIcon,
+      icon: votesIcon,
       label: 'Votes',
       view: EMainPage.Profile
     },
     {
-      icon: profileIcon,
+      icon: issueAreaIcon,
       label: 'Issue Areas',
+      view: EMainPage.Communities
+    },
+    {
+      icon: favoritesIcon,
+      label: 'Favorites',
       view: EMainPage.AddCommunity
     },
     {
-      icon: profileIcon,
-      label: 'Favorites',
-      view: EMainPage.Find
-    },
-    {
-      icon: communitiesIcon,
+      icon: searchIcon,
       label: 'Search',
-      view: EMainPage.Communities
+      view: EMainPage.Find
     }
   ];
 
